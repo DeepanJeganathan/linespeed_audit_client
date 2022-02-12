@@ -2,12 +2,13 @@ import React from "react";
 
 export default function () {
   return (
-    <nav className="navbar  navbar-expand-md navbar-light align-items-start">
+    <nav className="navbar  navbar-expand-md navbar-light align-items-start ">
       <div className="container-fluid d-flex flex-md-column">
         <div className="d-flex justify-content-between w-100 ">
-          <a href="#" className="navbar-brand ">
-            Line Speed Insight
+          <a href="#" className="navbar-brand  ">
+            Line Speed Insight <i className="fa-solid fa-house"></i>
           </a>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -21,7 +22,7 @@ export default function () {
           </button>
         </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-end">
+          <ul className="navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-start">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 Main
@@ -29,7 +30,7 @@ export default function () {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Enter audit
+                Audit Form
               </a>
             </li>
             <li class="nav-item">
