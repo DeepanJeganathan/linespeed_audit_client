@@ -1,76 +1,172 @@
-import React from 'react'
+import React, { useState } from "react";
+
+const initial = {
+  SupervisorName: "",
+  Date: "",
+  OperatorNumber: "",
+  WorkstationNumber: "",
+  RatedSpeed: "",
+  ActualSpeed: "",
+  ScrewRPM: "",
+  CompoundNumber: "",
+  Comment: "",
+};
 
 export default function AuditForm() {
+  const [fieldValues, setFieldValues] = useState(initial);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFieldValues({ ...fieldValues, [name]: value });
+  };
 
-    return (
-        <>
-            <header className="display-5 text-secondary p-1 m-3">
-                Line Speed Audit Form
-            </header>
-            <form >
-                <div className="form-group row">
+  const validate = () => {
+    const errObj = {};
+    if (fieldValues.SupervisorName.trim().length > 2) {
+      errObj.SupervisorName = true;
+    } else {
+      errObj.SupervisorName = false;
+    }
 
-                    <div className=" col-md-6 m-1">
-                        <label htmlFor="supervisor-name"> Name</label>
-                        <input type="text" id="supervisor-name" className="form-control" />
-                    </div>
-                    <div className=" col m-1">
-                        <label htmlFor="date"> Date</label>
-                        <input id="date" className="form-control" type="date"></input>
-                    </div>
-                </div>
-                <div className="form-group row ">
+    console.log(errObj);
 
-                        <div className=" col m-1">
-                            <label htmlFor="operator-number"> Operator No. </label>
-                            <input type="number" id="operator-number" className="form-control" />
-                        </div>
-                       <div className=" col m-1">
-                            <label htmlFor="workstation-number"> Workstation No. </label>
-                            <input type="number" id="workstation-number" className="form-control" />
-                        </div>
+    return Object.values(errObj).every((x) => x == true);
+  };
+  const handleSubmit = () => {
+    if (validate()) {
+      console.log("form submitted");
+      setFieldValues(initial);
+    } else {
+      console.log(
+        "error, something went wrong while submitting dis app bredrin"
+      );
+    }
+  };
 
-                </div>
+  return (
+    <>
+      <header className="display-5 text-secondary p-1 m-3 ">
+        <span className="border-bottom border-primary">
+          Line Speed Audit Form
+        </span>
+      </header>
+      <div className="card audit-form">
+        <div className="card-body m-5">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group row">
+              <div className=" col-md-6 m-1">
+                <label htmlFor="supervisor-name"> Name</label>
+                <input
+                  name="SupervisorName"
+                  type="text"
+                  id="supervisor-name"
+                  className="form-control"
+                  value={fieldValues.SupervisorName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className=" col m-1">
+                <label htmlFor="date"> Date</label>
+                <input
+                  name="Date"
+                  value={fieldValues.Date}
+                  onChange={handleChange}
+                  id="date"
+                  className="form-control"
+                  type="date"
+                ></input>
+              </div>
+            </div>
+            <div className="form-group row ">
+              <div className=" col m-1">
+                <label htmlFor="operator-number"> Operator No. </label>
+                <input
+                  name="OperatorNumber"
+                  type="text"
+                  id="operator-number"
+                  className="form-control"
+                  value={fieldValues.OperatorNumber}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className=" col m-1">
+                <label htmlFor="workstation-number"> Workstation No. </label>
+                <input
+                  name="WorkstationNumber"
+                  type="text"
+                  id="workstation-number"
+                  className="form-control"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                <div className="form-group row ">
+            <div className="form-group row ">
+              <div className=" col m-1">
+                <label htmlFor="rated-speed"> Rated Speed (fpm) </label>
+                <input
+                  name="RatedSpeed"
+                  type="text"
+                  id="rated-speed"
+                  className="form-control"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className=" col m-1">
+                <label htmlFor="actual-speed"> Actual Speed (fpm) </label>
+                <input
+                  name="ActualSpeed"
+                  type="text"
+                  id="actual-speed"
+                  className="form-control"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                    <div className=" col m-1">
-                        <label htmlFor="rated-speed"> Rated Speed (fpm) </label>
-                        <input type="number" id="rated-speed" className="form-control" />
-                    </div>
-                    <div className=" col m-1">
-                        <label htmlFor="actual-speed"> Actual Speed (fpm) </label>
-                        <input type="number" id="actual-speed" className="form-control" />
-                    </div>
+            <div className="form-group row ">
+              <div className=" col m-1">
+                <label htmlFor="screw-rpm"> Screw RPM </label>
+                <input
+                  name="ScrewRPM"
+                  type="text"
+                  id="screw-rpm"
+                  className="form-control"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className=" col m-1">
+                <label htmlFor="compound-number"> Compound No. </label>
+                <input
+                  type="text"
+                  name="CompoundNumber"
+                  id="compound-number"
+                  className="form-control"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                </div>
+            <div className="form-group row ">
+              <div className=" col m-3">
+                <label htmlFor="comments"> Comments </label>
+                <textarea
+                  name="Comment"
+                  type="text"
+                  id="comments"
+                  className="form-control"
+                  rows="3"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                <div className="form-group row ">
-
-                    <div className=" col m-1">
-                        <label htmlFor="screw-rpm"> Screw RPM </label>
-                        <input type="number" id="screw-rpm" className="form-control" />
-                    </div>
-                    <div className=" col m-1">
-                        <label htmlFor="compound-number"> Compound No. </label>
-                        <input type="number" id="compound-number" className="form-control" />
-                    </div>
-
-                </div>
-
-                <div className="form-group row ">
-
-                    <div className=" col m-3">
-                        <label htmlFor="comments"> Comments </label>
-                        <textarea type="text" id="comments" className="form-control" rows="3" />
-                    </div>
-                    
-                </div>
-
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
-
-        </>
-    )
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 }

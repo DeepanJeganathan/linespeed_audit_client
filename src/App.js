@@ -8,12 +8,14 @@ function App() {
       <div className="d-flex flex-column  flex-md-row">
         <div
           style={{ backgroundColor: "#ffffff" }}
-          className="col-md-3 m-3 h-100  "
+          className="col-md-3 m-3 h-100 sidebar-nav "
         >
-
           <SideBar />
         </div>
-        <div style={{ backgroundColor: "#ffffff" }} className="col-md-9 m-3 p-4">
+        <div
+          style={{ backgroundColor: "#ffffff" }}
+          className="col-md-9 m-3 p-4 "
+        >
           <div className="container">
             <Main />
           </div>

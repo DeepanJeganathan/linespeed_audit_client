@@ -4,9 +4,9 @@ export default function () {
   return (
     <nav className="navbar  navbar-expand-md navbar-light align-items-start ">
       <div className="container-fluid d-flex flex-md-column">
-        <div className="d-flex justify-content-between w-100 ">
-          <a href="#" className="navbar-brand  ">
-            Line Speed Insight <i className="fa-solid fa-house"></i>
+        <div className="d-flex justify-content-between w-100 border-bottom ">
+          <a href="#" className="navbar-brand ">
+            <h3 className="text-primary "> Line Speed Insight</h3>{" "}
           </a>
 
           <button
@@ -22,30 +22,30 @@ export default function () {
           </button>
         </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-start">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                Main
+          <ul className="  navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-start">
+            <li className="nav-item mt-4">
+              <a className="py-3 nav-link active " aria-current="page" href="#">
+                <span className="border-bottom border-danger"> Main</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className=" py-md-3 nav-item">
+              <a className="nav-link" href="#">
                 Audit Form
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item py-md-3">
+              <a className="nav-link" href="#">
                 View Recent Entries
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item py-md-3">
+              <a className="nav-link" href="#">
                 Rated vs Actual speed
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Best perfroming workstation
+            <li className="nav-item py-md-3">
+              <a className="nav-link" href="#">
+                Top Perfroming Workstation
               </a>
             </li>
           </ul>
