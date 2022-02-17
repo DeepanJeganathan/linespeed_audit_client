@@ -5,8 +5,8 @@ export default function () {
     <nav className="navbar  navbar-expand-md navbar-light align-items-start ">
       <div className="container-fluid d-flex flex-md-column">
         <div className="d-flex justify-content-between w-100 border-bottom ">
-          <a href="#" className="navbar-brand ">
-            <h3 className="text-primary "> Line Speed Insight</h3>{" "}
+          <a href="#" className="navbar-brand">
+            <h3 className="text-primary fs-4"> Line Speed Report</h3>{" "}
           </a>
 
           <button
@@ -22,29 +22,29 @@ export default function () {
           </button>
         </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="  navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-start">
+          <ul className="  navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-center">
             <li className="nav-item mt-4">
               <a className="py-3 nav-link active " aria-current="page" href="#">
-                <span className="border-bottom border-danger"> Main</span>
+                <span className="border-bottom border-danger fs-3"> Main</span>
               </a>
             </li>
             <li className=" py-md-3 nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link fs-4" href="#">
                 Audit Form
               </a>
             </li>
             <li className="nav-item py-md-3">
-              <a className="nav-link" href="#">
+              <a className="nav-link fs-4" href="#">
                 View Recent Entries
               </a>
             </li>
             <li className="nav-item py-md-3">
-              <a className="nav-link" href="#">
+              <a className="nav-link fs-4" href="#">
                 Rated vs Actual speed
               </a>
             </li>
             <li className="nav-item py-md-3">
-              <a className="nav-link" href="#">
+              <a className="nav-link fs-4" href="#">
                 Top Perfroming Workstation
               </a>
             </li>

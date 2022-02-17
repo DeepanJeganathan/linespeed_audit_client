@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* Validation Error */
+
+.invalid-field {
+  border-color: red;
+}
+
+.form-submit-error {
+  display: none;
+}
