@@ -8,15 +8,19 @@ function App() {
       <div className="d-flex flex-column  flex-md-row">
         <div
           style={{ backgroundColor: "#ffffff" }}
-          className="col m-3 h-100 sidebar-nav "
+          className="col  h-100 sidebar-nav "
         >
           <SideBar />
         </div>
-        <div
-          style={{ backgroundColor: "#ffffff" }}
-          className="col-md-10 m-3 p-4 "
-        >
-          <div className="container">
+        <div className="col-md-10">
+          <div className="bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
+            <span className="px-2 blockquote text-primary">
+              <i class="bi bi-megaphone px-1 "></i>
+              Announcements: if you have any ideas for improvements, feel free
+              to contact me. thanks deepan
+            </span>
+          </div>
+          <div className="container  m-3 p-4 ">
             <Main />
           </div>
         </div>

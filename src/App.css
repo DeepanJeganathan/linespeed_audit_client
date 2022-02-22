@@ -46,3 +46,37 @@
 .form-submit-error {
   display: none;
 }
+
+/* sidebar */
+
+.bg-brand {
+  background-color: rgba(44, 56, 74, 0.95);
+}
+.navbar-brand {
+  color: rgb(211, 208, 208) !important;
+  font-size: 1.6rem !important;
+  font-weight: 500;
+}
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-collapse {
+  background-color: #3c4b64;
+  color: rgba(255, 255, 255, 0.87);
+  height: 100%;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255) !important;
+}
+
+/* main nav */
+.main-nav {
+  height: 60px;
+}

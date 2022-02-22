@@ -3,10 +3,10 @@ import React from "react";
 export default function () {
   return (
     <nav className="navbar  navbar-expand-md navbar-light align-items-start ">
-      <div className="container-fluid d-flex flex-md-column">
-        <div className="d-flex justify-content-between w-100 border-bottom ">
-          <a href="#" className="navbar-brand">
-            <h3 className="text-primary fs-4"> Line Speed Report</h3>{" "}
+      <div className=" d-flex flex-column w-100 h-100">
+        <div className="d-flex  justify-content-between w-100  bg-brand">
+          <a href="#" className="navbar-brand p-3 ">
+            Line Speed Report
           </a>
 
           <button
@@ -21,31 +21,36 @@ export default function () {
             <span className="navbar-toggler-icon"></span>
           </button>
         </div>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="  navbar-nav d-flex flex-md-column  align-items-sm-center align-items-md-center">
-            <li className="nav-item mt-4">
-              <a className="py-3 nav-link active " aria-current="page" href="#">
-                <span className="border-bottom border-danger fs-3"> Main</span>
+        <div
+          className="collapse align-items-start navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <ul className=" navbar-nav d-flex flex-column align-items-center align-items-sm-start px-3">
+            <li className="nav-item mt-4 ">
+              <a className="py-3 nav-link  " aria-current="page" href="#">
+                <span className="border-bottom border-danger fs-4">
+                  <i class="text-primary bi bi-speedometer2"></i> Main
+                </span>
               </a>
             </li>
             <li className=" py-md-3 nav-item">
-              <a className="nav-link fs-4" href="#">
-                Audit Form
+              <a className="nav-link fs-5" href="#">
+                <i class="bi bi-pen"></i> Audit Form
+              </a>
+            </li>
+            <li className="nav-item py-md-3 ">
+              <a className="nav-link fs-5 " href="#">
+                <i class="bi bi-clock-history"></i> View Recent Entries
               </a>
             </li>
             <li className="nav-item py-md-3">
-              <a className="nav-link fs-4" href="#">
-                View Recent Entries
-              </a>
-            </li>
-            <li className="nav-item py-md-3">
-              <a className="nav-link fs-4" href="#">
+              <a className="nav-link fs-5" href="#">
                 Rated vs Actual speed
               </a>
             </li>
             <li className="nav-item py-md-3">
-              <a className="nav-link fs-4" href="#">
-                Top Perfroming Workstation
+              <a className="nav-link   fs-5" href="#">
+                <i class="bi bi-star"></i> Top Perfroming Workstation
               </a>
             </li>
           </ul>

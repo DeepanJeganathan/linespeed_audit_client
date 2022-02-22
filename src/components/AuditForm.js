@@ -68,10 +68,8 @@ export default function AuditForm() {
 
   return (
     <>
-      <header className="display-5 text-secondary p-1 m-3 ">
-        <span className="border-bottom border-primary">
-          Line Speed Audit Form
-        </span>
+      <header className="display-6 text-secondary p-1 m-3 ">
+        <span className="border-bottom border-primary">Speed Audit Form</span>
       </header>
       <div className="form-submit-error text-danger">
         oops, something went wrong while submitting form. Try again, if problems
