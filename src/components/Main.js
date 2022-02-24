@@ -1,10 +1,19 @@
 import React from "react";
-import AuditForm from "./AuditForm";
 
 export default function Main() {
+  const cone = {
+    color: "orange",
+    fontSize: 80,
+  };
+
   return (
     <>
-     <AuditForm></AuditForm>
+      <div className=" h-100 row  ">
+        <div className="col d-flex h-75 justify-content-center align-items-center">
+          <h1> Under construction</h1>
+          <i style={cone} class="bi bi-cone-striped"></i>
+        </div>
+      </div>
     </>
   );
 }

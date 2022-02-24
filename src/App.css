@@ -75,6 +75,12 @@
 .nav-link:hover {
   color: rgba(255, 255, 255) !important;
 }
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1030;
+}
 
 /* main nav */
 .main-nav {

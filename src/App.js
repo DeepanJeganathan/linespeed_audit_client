@@ -1,6 +1,9 @@
 import "./App.css";
 import Main from "./components/Main";
+import RecentEntries from "./components/RecentEntries";
+import AuditForm from "./components/AuditForm";
 import SideBar from "./components/SideBar";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -20,8 +23,18 @@ function App() {
               to contact me. thanks deepan
             </span>
           </div>
-          <div className="container  m-3 p-4 ">
-            <Main />
+          <div className="container h-100  m-3 p-4 ">
+            <Switch>
+              <Route exact path={"/"}>
+                <Main></Main>
+              </Route>
+              <Route path={"/auditform"}>
+                <AuditForm></AuditForm>
+              </Route>
+              <Route path={"/recent"}>
+                <RecentEntries></RecentEntries>
+              </Route>
+            </Switch>
           </div>
         </div>
       </div>

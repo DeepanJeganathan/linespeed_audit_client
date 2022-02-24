@@ -100,7 +100,6 @@ export default function AuditForm() {
               </div>
               <div className=" col m-1">
                 <label className="form-label " htmlFor="date">
-                  {" "}
                   Date
                 </label>
                 <input
@@ -116,8 +115,7 @@ export default function AuditForm() {
             <div className="form-group row ">
               <div className=" col m-1">
                 <label className="form-label " htmlFor="operator-number">
-                  {" "}
-                  Operator No.{" "}
+                  Operator No.
                 </label>
                 <input
                   name="OperatorNumber"
@@ -130,8 +128,7 @@ export default function AuditForm() {
               </div>
               <div className=" col m-1">
                 <label className="form-label" htmlFor="workstation-number">
-                  {" "}
-                  Workstation No.{" "}
+                  Workstation No.
                 </label>
                 <input
                   name="WorkstationNumber"
@@ -149,8 +146,7 @@ export default function AuditForm() {
             <div className="form-group row ">
               <div className=" col m-1">
                 <label className="form-label " htmlFor="rated-speed">
-                  {" "}
-                  Rated Speed (fpm){" "}
+                  Rated Speed (fpm)
                 </label>
                 <input
                   name="RatedSpeed"
@@ -163,8 +159,7 @@ export default function AuditForm() {
               </div>
               <div className=" col m-1">
                 <label className="form-label" htmlFor="actual-speed">
-                  {" "}
-                  Actual Speed (fpm){" "}
+                  Actual Speed (fpm)
                 </label>
                 <input
                   name="ActualSpeed"
@@ -180,8 +175,7 @@ export default function AuditForm() {
             <div className="form-group row ">
               <div className=" col m-1">
                 <label className="form-label " htmlFor="screw-rpm">
-                  {" "}
-                  Screw RPM{" "}
+                  Screw RPM
                 </label>
                 <input
                   name="ScrewRPM"
@@ -194,8 +188,7 @@ export default function AuditForm() {
               </div>
               <div className=" col m-1">
                 <label className="form-label " htmlFor="compound-number">
-                  {" "}
-                  Compound No.{" "}
+                  Compound No.
                 </label>
                 <input
                   type="text"
@@ -211,8 +204,7 @@ export default function AuditForm() {
             <div className="form-group row ">
               <div className=" col m-3">
                 <label className="form-label " htmlFor="comments">
-                  {" "}
-                  Comments{" "}
+                  Comments
                 </label>
                 <textarea
                   name="Comment"
