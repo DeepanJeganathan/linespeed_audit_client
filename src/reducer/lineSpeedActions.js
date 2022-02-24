@@ -25,12 +25,14 @@ export const fetch_entries_fail = (err) => {
 };
 
 export const fetch_entries = () => {
-  
   //returns another function
   return (dispatch) => {
-    console.log("fetch entries hit")
+    console.log("fetch entries hit");
     //logic goes here
-    dispatch(fetch_entries_request())
-    axios.get(url).then(res=> dispatch(fetch_entries_success(res.data))).catch(err=>dispatch(fetch_entries_fail(true)))
+    dispatch(fetch_entries_request());
+    axios
+      .get(url)
+      .then((res) => dispatch(fetch_entries_success(res.data)))
+      .catch((err) => dispatch(fetch_entries_fail(true)));
   };
 };
