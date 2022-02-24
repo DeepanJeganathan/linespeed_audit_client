@@ -14,22 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/* 
-sidebar */
 
-@media only screen and (min-width: 768px) {
-  .navbar {
-    height: 100vh;
-  }
-}
 
-.navbar a {
-  font-size: 1.25rem;
-}
-
-.sidebar-nav {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
 
 /* audit form */
 

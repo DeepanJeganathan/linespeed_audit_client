@@ -8,17 +8,17 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className="App container-fluid ">
-      <div className="d-flex flex-column  flex-md-row">
+      <div className="row g-0">
         <div
           style={{ backgroundColor: "#ffffff" }}
-          className="col  h-100 sidebar-nav "
+          className=" h-100 col-sm-4 col-lg-3 sidebar-nav "
         >
           <SideBar />
         </div>
-        <div className="col-md-10">
+        <div className=" col-sm-8 col-lg-9 test">
           <div className="bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
             <span className="px-2 blockquote text-primary">
-              <i class="bi bi-megaphone px-1 "></i>
+              <i className="bi bi-megaphone px-1 "></i>
               Announcements: if you have any ideas for improvements, feel free
               to contact me. thanks deepan
             </span>

@@ -1,7 +1,7 @@
 
 const initial={
     isLoading:false,
-    error:null,
+    error:false,
     entries:[]
 }
 
@@ -11,13 +11,18 @@ const initial={
     switch(action.type){
 
         case "FETCH_ENTRIES_REQUEST":
-            return {...state, isLoading=true}
+            console.log('loading hit')
+            return {...state, isLoading:true , error:false}
 
     case "FETCH_ENTRIES_SUCCESS":
-        return {...state,isLoading=false,entries=[...action.payload]}  
+        console.log('success hit')
+        console.log(state)
+        return {...state,isLoading:false,error:false,entries:[...action.payload]}  
 
         case "FETCH_ENTRIES_FAIL":
-            return {...state, isLoading=false, error=action.payload}
+            console.log('error hit')
+            console.log(action.payload)
+            return {...state, isLoading:false, error:action.payload}
         default:
         return state;
     }
