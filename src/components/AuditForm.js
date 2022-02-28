@@ -1,4 +1,4 @@
-import React, { createElement, useState } from "react";
+import React, { createElement, useState, useEffect } from "react";
 
 const initial = {
   SupervisorName: "",
@@ -13,11 +13,44 @@ const initial = {
 };
 
 export default function AuditForm() {
+  useEffect(() => {
+    console.log("yo it ran");
+  }, []);
+
+  const supervisors = [
+    { id: 1, firstName: "John", lastName: "Doe" },
+    { id: 2, firstName: "Bob", lastName: "Jones" },
+    { id: 3, firstName: "Tom", lastName: "Horn" },
+  ];
+
+  const supervisorsOptions = () => {
+    return supervisors.map((x) => (
+      <option key={x.id} value={x.id}>
+        {x.firstName}, {x.lastName}
+      </option>
+    ));
+  };
+
+  const workstations = [
+    { id: 1, workstationNumber: 3101, type: "Jacket", flow: 2 },
+    { id: 2, workstationNumber: 3102, type: "Jacket", flow: 2 },
+    { id: 3, workstationNumber: 3701, type: "Jacket", flow: 2 },
+  ];
+
+  const workstationOptions = () => {
+    return workstations.map((x) => (
+      <option key={x.id} value={x.id}>
+        {x.workstationNumber}, {x.type}
+      </option>
+    ));
+  };
+
   const [fieldValues, setFieldValues] = useState(initial);
   const [error, setError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target);
     setFieldValues({ ...fieldValues, [name]: value });
   };
 
@@ -28,7 +61,7 @@ export default function AuditForm() {
     temp.Date = fieldValues.Date !== "" ? true : false;
     temp.WorkstationNumber =
       fieldValues.WorkstationNumber !== "" &&
-      fieldValues.WorkstationNumber.length == 4
+      /^-?\d+$/.test(fieldValues.WorkstationNumber)
         ? true
         : false;
     setError(temp);
@@ -43,6 +76,7 @@ export default function AuditForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      console.log(fieldValues);
       console.log("form submitted");
       document.querySelector(".form-submit-error").style.display = "none";
 
@@ -56,6 +90,7 @@ export default function AuditForm() {
       formdata.append("ScrewRPM", fieldValues.ScrewRPM);
       formdata.append("CompoundNumber", fieldValues.CompoundNumber);
       formdata.append("Comment", fieldValues.Comment);
+      console.log(fieldValues);
 
       // submit form here
       setFieldValues(initial);
@@ -83,17 +118,18 @@ export default function AuditForm() {
                 <label className="form-label " htmlFor="supervisor-name">
                   Supervisor Name
                 </label>
-                <input
+                <select
                   name="SupervisorName"
-                  type="text"
                   id="supervisor-name"
-                  className="form-control"
+                  className="form-select"
                   value={fieldValues.SupervisorName}
                   onChange={handleChange}
                   className={
                     `form-control ` + applyValidationError("SupervisorName")
                   }
-                />
+                >
+                  {supervisorsOptions()}
+                </select>
                 <div className={"d-none "}>
                   <p> name should be longer than 2 characters please!!</p>
                 </div>
@@ -130,16 +166,17 @@ export default function AuditForm() {
                 <label className="form-label" htmlFor="workstation-number">
                   Workstation No.
                 </label>
-                <input
+                <select
                   name="WorkstationNumber"
-                  type="text"
                   id="workstation-number"
                   value={fieldValues.WorkstationNumber}
                   className={
                     "form-control " + applyValidationError("WorkstationNumber")
                   }
                   onChange={handleChange}
-                />
+                >
+                  {workstationOptions()}
+                </select>
               </div>
             </div>
 

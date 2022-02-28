@@ -8,34 +8,28 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className="App container-fluid ">
-      <div className="row g-0">
-        <div
-          style={{ backgroundColor: "#ffffff" }}
-          className=" h-100 col-sm-4 col-lg-3 sidebar-nav "
-        >
-          <SideBar />
+      <SideBar />
+
+      <div className="  test">
+        <div className="bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
+          <span className="px-2 blockquote text-primary">
+            <i className="bi bi-megaphone px-1 "></i>
+            Announcements: if you have any ideas for improvements, feel free to
+            contact me. thanks deepan
+          </span>
         </div>
-        <div className=" col-sm-8 col-lg-9 test">
-          <div className="bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
-            <span className="px-2 blockquote text-primary">
-              <i className="bi bi-megaphone px-1 "></i>
-              Announcements: if you have any ideas for improvements, feel free
-              to contact me. thanks deepan
-            </span>
-          </div>
-          <div className="container h-100  m-3 p-4 ">
-            <Switch>
-              <Route exact path={"/"}>
-                <Main></Main>
-              </Route>
-              <Route path={"/auditform"}>
-                <AuditForm></AuditForm>
-              </Route>
-              <Route path={"/recent"}>
-                <RecentEntries></RecentEntries>
-              </Route>
-            </Switch>
-          </div>
+        <div className="container h-100  m-3 p-4 ">
+          <Switch>
+            <Route exact path={"/"}>
+              <Main></Main>
+            </Route>
+            <Route path={"/auditform"}>
+              <AuditForm></AuditForm>
+            </Route>
+            <Route path={"/recent"}>
+              <RecentEntries></RecentEntries>
+            </Route>
+          </Switch>
         </div>
       </div>
     </div>
