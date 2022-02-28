@@ -24,6 +24,37 @@ export const fetch_entries_fail = (err) => {
   };
 };
 
+export const fetch_form_values_workstations=(data)=>
+{
+return{  type:"FETCH_FORM_VALUES_WORKSTATIONS",
+  payload:data}
+
+}
+
+
+export const fetch_selectForm_workstation_values=()=>{
+  return(dispatch)=>{
+
+    axios.get(url+'/workstations').then(res=> dispatch(fetch_form_values_workstations(res.data)))
+  }
+
+}
+export const fetch_form_values_supervisors=(data)=>
+{
+return{  type:"FETCH_FORM_VALUES_SUPERVISORS",
+  payload:data}
+
+}
+
+
+export const fetch_selectForm_superviors_values=()=>{
+  return(dispatch)=>{
+
+    axios.get(url+'/supervisors').then(res=> dispatch(fetch_form_values_supervisors(res.data)))
+  }
+
+}
+
 export const fetch_entries = () => {
   //returns another function
   return (dispatch) => {

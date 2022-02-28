@@ -48,6 +48,16 @@
 }
 
 /* sidebar */
+.sidebar{
+  
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 240px;
+  padding: 48px 0 0;
+}
 
 .bg-brand {
   background-color: rgba(44, 56, 74, 0.95);
@@ -56,13 +66,14 @@
   color: rgb(211, 208, 208) !important;
   font-size: 1.6rem !important;
   font-weight: 500;
+  padding-left: 5px;
 }
 
 .navbar {
   padding-top: 0;
   padding-bottom: 0;
 }
-.navbar-collapse {
+.sidebar-menu {
   background-color: #3c4b64;
   color: rgba(255, 255, 255, 0.87);
   height: 100%;
@@ -96,4 +107,19 @@
 /* main nav */
 .main-nav {
   height: 60px;
+}
+
+
+/* audit form */
+
+.audit-form {
+  box-shadow: rgba(50, 50, 93, 0.27) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.1) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.14) 0px -2px 6px 0px inset;
+}
+
+/* main */
+
+.main-content{
+  padding-left: 260px;
 }

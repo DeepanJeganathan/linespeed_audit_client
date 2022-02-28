@@ -4,26 +4,15 @@ import { Link } from "react-router-dom";
 
 export default function () {
   return (
-    <nav className="navbar navbar-expand-lg  ">
+    <nav className="navbar sidebar">
       <div className="bg-dark justify-content-between d-flex col">
-        <a href="#" className="navbar-brand">
+        <a href="#" className="navbar-brand justify-content-between">
           Line Speed Report
-        </a>
-        <button
-          className="navbar-toggler bg-light"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        </a>       
       </div>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className=" navbar-nav align-items-center align-items-sm-start px-3">
+      <div className=" sidebar-menu align-items-start" id="navbarSupportedContent">
+        <ul className=" navbar-nav flex-column  px-3">
           <li className="nav-item mt-4 ">
             <Link
               to={"/"}

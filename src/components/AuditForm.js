@@ -1,4 +1,8 @@
+import axios from "axios";
 import React, { createElement, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { fetch_selectForm_workstation_values, fetch_selectForm_superviors_values } from "../reducer/lineSpeedActions";
 
 const initial = {
   SupervisorName: "",
@@ -12,18 +16,24 @@ const initial = {
   Comment: "",
 };
 
+
+
 export default function AuditForm() {
   useEffect(() => {
-    console.log("yo it ran");
+    dispatch(fetch_selectForm_superviors_values())
+    dispatch(fetch_selectForm_workstation_values())
   }, []);
 
-  const supervisors = [
-    { id: 1, firstName: "John", lastName: "Doe" },
-    { id: 2, firstName: "Bob", lastName: "Jones" },
-    { id: 3, firstName: "Tom", lastName: "Horn" },
-  ];
+
+const supervisors= useSelector(state=>state.supervisors)
+const workstations=useSelector(state=>state.workstations)
+  const dispatch=useDispatch();
+  
+  console.log(workstations)
 
   const supervisorsOptions = () => {
+
+   
     return supervisors.map((x) => (
       <option key={x.id} value={x.id}>
         {x.firstName}, {x.lastName}
@@ -31,16 +41,12 @@ export default function AuditForm() {
     ));
   };
 
-  const workstations = [
-    { id: 1, workstationNumber: 3101, type: "Jacket", flow: 2 },
-    { id: 2, workstationNumber: 3102, type: "Jacket", flow: 2 },
-    { id: 3, workstationNumber: 3701, type: "Jacket", flow: 2 },
-  ];
+  
 
   const workstationOptions = () => {
     return workstations.map((x) => (
       <option key={x.id} value={x.id}>
-        {x.workstationNumber}, {x.type}
+        {x.workstationNumber} {x.type}
       </option>
     ));
   };
@@ -114,7 +120,7 @@ export default function AuditForm() {
         <div className="card-body m-5">
           <form onSubmit={handleSubmit}>
             <div className="form-group row">
-              <div className=" col-md-6 m-1">
+              <div className=" col m-1">
                 <label className="form-label " htmlFor="supervisor-name">
                   Supervisor Name
                 </label>
@@ -128,6 +134,7 @@ export default function AuditForm() {
                     `form-control ` + applyValidationError("SupervisorName")
                   }
                 >
+                   <option selected>Select Auditor </option>
                   {supervisorsOptions()}
                 </select>
                 <div className={"d-none "}>
@@ -175,6 +182,8 @@ export default function AuditForm() {
                   }
                   onChange={handleChange}
                 >
+                   <option selected>Select Workstation </option>
+                 
                   {workstationOptions()}
                 </select>
               </div>

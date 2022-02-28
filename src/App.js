@@ -7,18 +7,22 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App container-fluid ">
+    <div className="App ">
+
+<div className="container-fluid">
+      <div className="row">
       <SideBar />
 
-      <div className="  test">
-        <div className="bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
-          <span className="px-2 blockquote text-primary">
-            <i className="bi bi-megaphone px-1 "></i>
-            Announcements: if you have any ideas for improvements, feel free to
-            contact me. thanks deepan
+      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+        
+        
+        <div className="container ">
+        <div className="  bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
+          <span className="px-2 blockquote text-muted">
+            <i className="bi bi-megaphone px-3 text-primary "></i>
+             Any issues please contact me! - deepan
           </span>
         </div>
-        <div className="container h-100  m-3 p-4 ">
           <Switch>
             <Route exact path={"/"}>
               <Main></Main>
@@ -31,8 +35,14 @@ function App() {
             </Route>
           </Switch>
         </div>
+        
+      
+      </main>
+      </div>
+      
       </div>
     </div>
+
   );
 }
 

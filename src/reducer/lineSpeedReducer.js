@@ -2,7 +2,9 @@
 const initial={
     isLoading:false,
     error:false,
-    entries:[]
+    entries:[],
+    supervisors:[],
+    workstations:[]
 }
 
  export const lineSpeedReducer=(state=initial,action)=>
@@ -23,6 +25,13 @@ const initial={
             console.log('error hit')
             console.log(action.payload)
             return {...state, isLoading:false, error:action.payload}
+
+         case "FETCH_FORM_VALUES_WORKSTATIONS":
+             console.log("workstation fetch hit")
+                return {...state,workstations:[...action.payload]}
+                case "FETCH_FORM_VALUES_SUPERVISORS":
+                    console.log("supervisors fetch hit")
+                       return {...state,supervisors:[...action.payload]}
         default:
         return state;
     }
