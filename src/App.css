@@ -63,7 +63,7 @@
   background-color: rgba(44, 56, 74, 0.95);
 }
 .navbar-brand {
-  color: rgb(211, 208, 208) !important;
+  color: rgb(235, 235, 235) !important;
   font-size: 1.6rem !important;
   font-weight: 500;
   padding-left: 5px;
@@ -106,7 +106,7 @@
 
 /* main nav */
 .main-nav {
-  height: 60px;
+ font-size: 1rem;
 }
 
 

@@ -2,18 +2,18 @@ import axios from "axios";
 import React, { createElement, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import { fetch_selectForm_workstation_values, fetch_selectForm_superviors_values } from "../reducer/lineSpeedActions";
+import { fetch_selectForm_workstation_values, fetch_selectForm_superviors_values, post_audit_form_to_db } from "../reducer/lineSpeedActions";
 
 const initial = {
-  SupervisorName: "",
+ SupervisorId: "",
   Date: "",
   OperatorNumber: "",
-  WorkstationNumber: "",
+ WorkstationId: "",
   RatedSpeed: "",
-  ActualSpeed: "",
+  ActualLineSpeed: "",
   ScrewRPM: "",
-  CompoundNumber: "",
-  Comment: "",
+  CompoundPartNumber: "",
+  Comments: "",
 };
 
 
@@ -25,28 +25,28 @@ export default function AuditForm() {
   }, []);
 
 
-const supervisors= useSelector(state=>state.supervisors)
-const workstations=useSelector(state=>state.workstations)
-  const dispatch=useDispatch();
-  
+  const supervisors = useSelector(state => state.supervisors)
+  const workstations = useSelector(state => state.workstations)
+  const dispatch = useDispatch();
+
   console.log(workstations)
 
   const supervisorsOptions = () => {
 
-   
-    return supervisors.map((x) => (
-      <option key={x.id} value={x.id}>
+
+    return supervisors.map((x,i) => (
+      <option key={i} value={x.supervisorId}>
         {x.firstName}, {x.lastName}
       </option>
     ));
   };
 
-  
+
 
   const workstationOptions = () => {
-    return workstations.map((x) => (
-      <option key={x.id} value={x.id}>
-        {x.workstationNumber} {x.type}
+    return workstations.map((x,i) => (
+      <option key={x,i} value={x.workstationId}>
+       {x.workstationNumber}  {x.type}
       </option>
     ));
   };
@@ -63,11 +63,10 @@ const workstations=useSelector(state=>state.workstations)
   const validate = () => {
     const temp = {};
 
-    temp.SupervisorName = fieldValues.SupervisorName !== "" ? true : false;
+    temp.SupervisorId = fieldValues.SupervisorId !== "" ? true : false;
     temp.Date = fieldValues.Date !== "" ? true : false;
-    temp.WorkstationNumber =
-      fieldValues.WorkstationNumber !== "" &&
-      /^-?\d+$/.test(fieldValues.WorkstationNumber)
+    temp.WorkstationId =
+      fieldValues.WorkstationId !== ""
         ? true
         : false;
     setError(temp);
@@ -87,16 +86,16 @@ const workstations=useSelector(state=>state.workstations)
       document.querySelector(".form-submit-error").style.display = "none";
 
       const formdata = new FormData();
-      formdata.append("SupervisorName", fieldValues.SupervisorName);
+      formdata.append("SupervisorId", fieldValues.SupervisorId);
       formdata.append("Date", fieldValues.Date);
       formdata.append("OperatorNumber", fieldValues.OperatorNumber);
-      formdata.append("WorkstationNumber", fieldValues.WorkstationNumber);
+      formdata.append("WorkstationId", fieldValues.WorkstationId);
       formdata.append("RatedSpeed", fieldValues.RatedSpeed);
-      formdata.append("ActualSpeed", fieldValues.ActualSpeed);
+      formdata.append("ActualLineSpeed", fieldValues.ActualLineSpeed);
       formdata.append("ScrewRPM", fieldValues.ScrewRPM);
-      formdata.append("CompoundNumber", fieldValues.CompoundNumber);
-      formdata.append("Comment", fieldValues.Comment);
-      console.log(fieldValues);
+      formdata.append("CompoundPartNumber", fieldValues.CompoundPartNumber);
+      formdata.append("Comments", fieldValues.Comments);
+   dispatch(post_audit_form_to_db(formdata));
 
       // submit form here
       setFieldValues(initial);
@@ -125,16 +124,16 @@ const workstations=useSelector(state=>state.workstations)
                   Supervisor Name
                 </label>
                 <select
-                  name="SupervisorName"
+                  name="SupervisorId"
                   id="supervisor-name"
                   className="form-select"
-                  value={fieldValues.SupervisorName}
+                  value={fieldValues.SupervisorId}
                   onChange={handleChange}
                   className={
-                    `form-control ` + applyValidationError("SupervisorName")
+                    `form-control ` + applyValidationError("SupervisorId")
                   }
                 >
-                   <option selected>Select Auditor </option>
+                  <option selected>Select Auditor </option>
                   {supervisorsOptions()}
                 </select>
                 <div className={"d-none "}>
@@ -174,16 +173,16 @@ const workstations=useSelector(state=>state.workstations)
                   Workstation No.
                 </label>
                 <select
-                  name="WorkstationNumber"
+                  name="WorkstationId"
                   id="workstation-number"
-                  value={fieldValues.WorkstationNumber}
+                  value={fieldValues.WorkstationId}
                   className={
-                    "form-control " + applyValidationError("WorkstationNumber")
+                    "form-control " + applyValidationError("WorkstationId")
                   }
                   onChange={handleChange}
                 >
-                   <option selected>Select Workstation </option>
-                 
+                  <option selected>Select Workstation </option>
+
                   {workstationOptions()}
                 </select>
               </div>
@@ -208,12 +207,12 @@ const workstations=useSelector(state=>state.workstations)
                   Actual Speed (fpm)
                 </label>
                 <input
-                  name="ActualSpeed"
+                  name="ActualLineSpeed"
                   type="text"
                   id="actual-speed"
                   className="form-control"
                   onChange={handleChange}
-                  value={fieldValues.ActualSpeed}
+                  value={fieldValues.ActualLineSpeed}
                 />
               </div>
             </div>
@@ -238,28 +237,28 @@ const workstations=useSelector(state=>state.workstations)
                 </label>
                 <input
                   type="text"
-                  name="CompoundNumber"
+                  name="CompoundPartNumber"
                   id="compound-number"
                   className="form-control"
                   onChange={handleChange}
-                  value={fieldValues.CompoundNumber}
+                  value={fieldValues.CompoundPartNumber}
                 />
               </div>
             </div>
 
             <div className="form-group row ">
               <div className=" col m-3">
-                <label className="form-label " htmlFor="comments">
+                <label className="form-label " htmlFor="Comments">
                   Comments
                 </label>
                 <textarea
-                  name="Comment"
+                  name="Comments"
                   type="text"
-                  id="comments"
+                  id="Comments"
                   className="form-control"
                   rows="3"
                   onChange={handleChange}
-                  value={fieldValues.Comment}
+                  value={fieldValues.Comments}
                 />
               </div>
             </div>

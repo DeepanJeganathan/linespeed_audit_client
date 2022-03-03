@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function () {
   return (
     <nav className="navbar sidebar">
-      <div className="bg-dark justify-content-between d-flex col">
+      <div className="bg-brand justify-content-between py-2 col">
         <a href="#" className="navbar-brand justify-content-between">
           Line Speed Report
         </a>       
@@ -13,7 +13,7 @@ export default function () {
 
       <div className=" sidebar-menu align-items-start" id="navbarSupportedContent">
         <ul className=" navbar-nav flex-column  px-3">
-          <li className="nav-item mt-4 ">
+          <li key='1' className="nav-item mt-4 ">
             <Link
               to={"/"}
               className="py-3 nav-link  "
@@ -25,28 +25,40 @@ export default function () {
               </span>
             </Link>
           </li>
-          <li className=" py-md-3 nav-item">
+          <li key='2' className=" py-md-3 nav-item">
             <Link to={"/auditform"} className="nav-link fs-5" href="#">
               <i className="bi bi-pen"></i> Audit Form
             </Link>
           </li>
-          <li className="nav-item py-md-3 ">
+          <li key='3' className="nav-item py-md-3 ">
             <Link to={"/recent"} className="nav-link fs-5 " href="#">
               <i className="bi bi-clock-history"></i> View Recent Entries
             </Link>
           </li>
-          <li className="nav-item py-md-3">
-            <a className="nav-link fs-5" href="#">
+          <li key='4' className="nav-item py-md-3">
+          <Link
+              to={"/"}
+              className="py-3 nav-link  "
+              aria-current="page"
+              href="#"
+            >
               Rated vs Actual speed
-            </a>
+            </Link>
           </li>
-          <li className="nav-item py-md-3">
-            <a className="nav-link   fs-5" href="#">
-              <i className="bi bi-star"></i> Top Perfroming Workstation
-            </a>
+          <li key='5' className="nav-item py-md-3">
+          <Link
+              to={"/"}
+              className="py-3 nav-link  "
+              aria-current="page"
+              href="#"
+            > Top Perfroming Workstation
+          </Link>
           </li>
+          
         </ul>
+        
       </div>
+   
     </nav>
   );
 }

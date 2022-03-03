@@ -13,14 +13,14 @@ function App() {
       <div className="row">
       <SideBar />
 
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+      <main className="col-md-9 ms-sm-auto col px-md-4 main-content">
         
         
         <div className="container ">
-        <div className="  bg-light main-nav d-flex align-items-center justify-content-start border-bottom">
-          <span className="px-2 blockquote text-muted">
-            <i className="bi bi-megaphone px-3 text-primary "></i>
-             Any issues please contact me! - deepan
+        <div className="  bg-light d-flex my-1 align-items-center justify-content-start border-bottom">
+          <span className="px-2  blockquote d-flex">
+            <i className="bi bi-megaphone px-3 text-primary"></i>
+            <div className="text-muted main-nav  d-flex ">If you encounter any issues submitting audit form, send me an email perferably with screen capture- Deepan</div> 
           </span>
         </div>
           <Switch>
